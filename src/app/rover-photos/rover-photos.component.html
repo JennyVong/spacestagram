@@ -1,0 +1,25 @@
+<div class="rover-photos-container">
+
+<div id="ring">
+    Loading
+    <span class="loader"></span>
+</div>
+
+<div class="rover-photos" *ngFor="let photos of gallery">
+        <div class="rover-photos-col" *ngFor="let photo of photos">
+            <div class="rover-photo">
+                <img class="rover-image" [src]="photo.img_src"/>
+                <div class="button-container">
+                    <button mat-icon-button [value]="photo.liked">
+                        <mat-icon class="star">{{photo.liked ? 'star' : 'star_border' }}</mat-icon>
+                    </button>
+                </div>
+                <div class="rover-description">
+                    <span class="details">{{ photo.rover.name }} - {{ photo.camera.full_name }}</span>
+                    <span class="date">{{ photo.earth_date }}</span>
+                    <p class="source">Brought to you by NASA's Rover Photos API</p>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
