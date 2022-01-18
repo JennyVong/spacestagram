@@ -1,2 +1,32 @@
-<app-navbar></app-navbar>
-<app-rover-photos></app-rover-photos>
+<div class="navbar">
+    <nav class="heading">
+      <a [routerLink]="['/']" [queryParams]="{ searchText: '' }">
+        <img class="logo" src="../assets/logo.svg" />
+      </a>
+    </nav>
+    <div class="search">
+      <input 
+        [(ngModel)]="searchText" 
+        (keyup)="onKeyPress($event)" 
+        (blur)="toggleListDisplay(0)"
+        (focus)="toggleListDisplay(1)" 
+        placeholder="Search camera" 
+        class="search-input">
+      <mat-icon class="search-icon">search</mat-icon>
+
+      <div class="search-options" *ngIf="!listHidden">
+        <list-item class="option" *ngFor="let camera of cameras; let i = index"
+          [ngClass]="{ 'selected': i===selectedIndex }" (click)="selectItem(i)">
+          {{ camera }}
+        </list-item>
+      </div>
+    </div>
+    <nav class="liked-link">
+      <a class="link" [routerLink]="['/liked-photos']" [queryParams]="{ input: '' }">
+        Liked
+        <mat-icon class="star">star</mat-icon>
+      </a>
+    </nav>
+  </div>
+  <router-outlet></router-outlet>
+<!--<app-rover-photos [searchText]="searchText" [likedPhotos]="likedPhotos"></app-rover-photos>-->

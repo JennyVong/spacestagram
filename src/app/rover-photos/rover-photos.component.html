@@ -1,25 +1,29 @@
 <div class="rover-photos-container">
 
-<div id="ring">
-    Loading
-    <span class="loader"></span>
-</div>
+  <div id="loading-container">
+    <img class="logo" src="../../assets/logo.svg" />
+    <div class="progress">
+      <div class="progress-value"></div>
+    </div>
+  </div>
 
-<div class="rover-photos" *ngFor="let photos of gallery">
-        <div class="rover-photos-col" *ngFor="let photo of photos">
-            <div class="rover-photo">
-                <img class="rover-image" [src]="photo.img_src"/>
-                <div class="button-container">
-                    <button mat-icon-button [value]="photo.liked">
-                        <mat-icon class="star">{{photo.liked ? 'star' : 'star_border' }}</mat-icon>
-                    </button>
-                </div>
-                <div class="rover-description">
-                    <span class="details">{{ photo.rover.name }} - {{ photo.camera.full_name }}</span>
-                    <span class="date">{{ photo.earth_date }}</span>
-                    <p class="source">Brought to you by NASA's Rover Photos API</p>
-                </div>
-            </div>
+  <div class="rover-photos" *ngFor="let photos of gallery">
+    <div class="rover-photos-col" *ngFor="let photo of photos | filter: searchText">
+      <div class="rover-photo">
+        <img class="rover-image" [src]="photo.img_src"/>
+        <div class="button-container">
+          <button mat-icon-button (click)="like(photo.liked, photo.id)">
+            <mat-icon class="star" *ngIf="!photo.liked">star_border</mat-icon>
+            <mat-icon class="star" *ngIf="photo.liked">star</mat-icon>
+          </button>
         </div>
-</div>
+        <div class="rover-description">
+          <span class="details">{{ photo.rover.name }} - {{ photo.camera.full_name }}</span>
+          <span class="date">{{ photo.earth_date }}</span>
+          <p class="source">Brought to you by NASA's Rover Photos API</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

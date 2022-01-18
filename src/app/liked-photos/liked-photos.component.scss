@@ -1,0 +1,69 @@
+.liked-photos {
+
+  &-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    padding-top: 100px;
+  }
+
+  &-col {
+    flex: 25%;
+    max-width: 20%;
+    padding: 0 5px 5px 5px;
+
+    .liked-photo {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      border-radius: 10px;
+      width: 100%;
+
+      .button-container {
+        display: flex;
+        justify-content: right;
+
+        button {
+          border-radius: 50%;
+          background-color: transparent;
+          box-shadow: none;
+          border: none;
+        }
+
+        .star {
+          color: #96BF46;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .liked-image {
+        border-radius: 20px;
+      }
+
+      .liked-description {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        padding: 0 0 20px 10px;
+
+        .details {
+          font-weight: 700;
+        }
+
+        .date {
+          padding-top: 10px;
+        }
+
+        .source {
+          color: gray;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
