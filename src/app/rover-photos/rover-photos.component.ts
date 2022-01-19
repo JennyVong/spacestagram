@@ -12,6 +12,8 @@ import { DataService } from '../data.service';
 export class RoverPhotosComponent implements OnInit {
   photo: any;
   photos: Array<any> = [];
+  display: Array<any> = [];
+  limit: number = 20;
   @Input() searchText: string = "";
   @Input() likedPhotos: Array<any> = []; 
 
@@ -73,6 +75,11 @@ export class RoverPhotosComponent implements OnInit {
     }
   }
 
+  increaseLimit (): void {
+    this.limit += 20;
+    this.display = this.photos.slice(0, this.limit);
+  }
+
   getPhotos (): void {
     this.nasaPhotoService.getPhotos().subscribe(res => {
       if (res) {
@@ -91,6 +98,9 @@ export class RoverPhotosComponent implements OnInit {
         this.photos = JSON.parse(savedPhotos);
         this.dataService.setPhotos(this.photos);
       }
+
+      // set up photos to display based on limit of 20
+      this.display = this.photos.slice(0, this.limit);
 
       // set up liked photos array with past data
       this.photos.filter((photo) => {

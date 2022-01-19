@@ -7,8 +7,8 @@
     </div>
   </div>
 
-  <div class="rover-photos-container">
-    <div class="rover-photos-col" *ngFor="let photo of photos | filter: searchText">
+  <ngx-masonry class="rover-photos-container">
+    <div ngxMasonryItem class="rover-photos-col" *ngFor="let photo of display | filter: searchText">
       <div class="rover-photo">
         <img class="rover-image" [src]="photo.img_src"/>
         <div class="button-container">
@@ -24,5 +24,11 @@
         </div>
       </div>
     </div>
+  </ngx-masonry>
+
+  <div class="show-more-container">
+    <button class="show-more" *ngIf="limit < photos.length && !searchText" (click)="increaseLimit()">
+      Show More Images<mat-icon class="arrow">keyboard_arrow_down</mat-icon>
+    </button>
   </div>
 </div>

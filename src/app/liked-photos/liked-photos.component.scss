@@ -8,17 +8,20 @@
     font-weight: 700;
   }
 
-  &-container {
+  .no-photos {
     display: flex;
-    flex-wrap: wrap;
-    width: 100%;
     justify-content: center;
+    color: #96BF46;
+  }
+
+  &-container {
+    width: 90vw;
+    margin-left: 70px;
   }
 
   &-col {
-    flex: 25%;
-    max-width: 20%;
-    padding: 0 5px 5px 5px;
+    width: 15%;
+    padding: 0 10px;
 
     .liked-photo {
       margin-top: 8px;
@@ -70,6 +73,63 @@
           color: gray;
           font-size: 12px;
         }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1920px) {
+    &-container {
+      margin-left: 45px;
+    }
+
+    .rover-photos-col {
+      width: 18%;
+    }
+}
+
+  @media screen and (max-width: 1350px) {
+    &-container {
+      margin-left: 50px;
+    }
+
+      .rover-photos-col {
+        width: 30%;
+      }
+  }
+
+  @media screen and (max-width: 600px) {
+    &-container {
+      margin: 0;
+    }
+    .rover-photos-col {
+      width: 100%;
+    }
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+
+    .show-more {
+      display: flex;
+      align-items: flex-end;
+      background-color: transparent;
+      color: #FFF;
+      box-shadow: none;
+      border: none;
+      font-size: 14px;
+      font-weight: 700;
+      color: #96BF46;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .arrow {
+        color: #96BF46;
+        font-weight: 700;
+        font-size: 30px;
       }
     }
   }

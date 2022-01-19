@@ -7,9 +7,10 @@ import { DataService } from '../data.service';
   styleUrls: ['./liked-photos.component.scss']
 })
 export class LikedPhotosComponent implements OnInit {
-  @Input() likedPhotos: Array<any> = [];
-  @Input() photos: Array<any> = [];
-  @Input() searchText: string = '';
+  likedPhotos: Array<any> = [];
+  photos: Array<any> = [];
+  display: Array<any> = [];
+  limit: number = 20;
 
   constructor(
     private dataService: DataService,
@@ -17,9 +18,20 @@ export class LikedPhotosComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.likedPhotos = this.dataService.getArray();
-    this.photos = this.dataService.getPhotos();
-    this.searchText = this.dataService.getSearch();
+    const liked = localStorage.getItem('likedPhotos');
+    if (liked) {
+      this.likedPhotos = JSON.parse(liked)
+    }
+    const allPhotos = localStorage.getItem('photos');
+    if (allPhotos) {
+      this.photos = JSON.parse(allPhotos);
+    }
+    this.display = this.likedPhotos.slice(0, this.limit);
+  }
+
+  increaseLimit (): void {
+    this.limit += 20;
+    this.display = this.likedPhotos.slice(0, this.limit);
   }
 
   like (photo: boolean, id: number): void {
@@ -42,6 +54,7 @@ export class LikedPhotosComponent implements OnInit {
     } else {
       this.likedPhotos.splice(this.likedPhotos.findIndex(photo => photo.id == id), 1);
     }
+    this.display = this.likedPhotos;
     localStorage.setItem('likedPhotos', JSON.stringify(this.likedPhotos));
 
     // pass data to liked-photos component
