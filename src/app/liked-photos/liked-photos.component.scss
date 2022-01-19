@@ -1,11 +1,18 @@
 .liked-photos {
+  padding-top: 100px;
+
+  .title {
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+  }
 
   &-container {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
-    padding-top: 100px;
   }
 
   &-col {

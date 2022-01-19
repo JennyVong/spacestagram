@@ -1,4 +1,4 @@
-<div class="rover-photos-container">
+<div class="rover-photos">
 
   <div id="loading-container">
     <img class="logo" src="../../assets/logo.svg" />
@@ -7,7 +7,7 @@
     </div>
   </div>
 
-  <div class="rover-photos" *ngFor="let photos of gallery">
+  <div class="rover-photos-container">
     <div class="rover-photos-col" *ngFor="let photo of photos | filter: searchText">
       <div class="rover-photo">
         <img class="rover-image" [src]="photo.img_src"/>
@@ -25,5 +25,4 @@
       </div>
     </div>
   </div>
-
 </div>

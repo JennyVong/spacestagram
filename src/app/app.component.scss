@@ -74,18 +74,14 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        padding-right: 20px;
+        padding-right: 30px;
 
         .link {
-            display: flex;
-            align-items: flex-end;
             text-decoration: none;
-            color: #96BF46;
-            font-weight: 700;
 
             .star {
-                padding-left: 5px;
                 color: #96BF46;
+                font-size: 36px;
             }
         }
     }

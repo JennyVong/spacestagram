@@ -12,10 +12,6 @@ import { DataService } from '../data.service';
 export class RoverPhotosComponent implements OnInit {
   photo: any;
   photos: Array<any> = [];
-  cols: Array<any> = [];
-  gallery: Array<Array<any>> = [];
-  start: number = 0;
-  end: number = 0;
   @Input() searchText: string = "";
   @Input() likedPhotos: Array<any> = []; 
 
@@ -94,14 +90,6 @@ export class RoverPhotosComponent implements OnInit {
         // assign photos array to existing local storage
         this.photos = JSON.parse(savedPhotos);
         this.dataService.setPhotos(this.photos);
-      }
-
-      this.end = this.photos.length/8;
-      while (this.start <= this.photos.length) {
-        this.cols = this.photos.slice(this.start,this.end);
-        this.start = this.end;
-        this.end = this.end + this.photos.length/8;
-        this.gallery.push(this.cols);
       }
 
       // set up liked photos array with past data
