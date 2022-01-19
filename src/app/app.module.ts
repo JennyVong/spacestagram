@@ -13,6 +13,7 @@ import { FilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { LikedPhotosComponent } from './liked-photos/liked-photos.component';
 import { NasaPhotosService } from './nasa-photos.service';
+import { NgxMasonryModule } from 'ngx-masonry';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NasaPhotosService } from './nasa-photos.service';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
+    NgxMasonryModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

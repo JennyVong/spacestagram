@@ -2,8 +2,12 @@
   
   <h1 class="title">Liked</h1>
 
-  <div class="liked-photos-container">
-    <div class="liked-photos-col" *ngFor="let photo of likedPhotos | filter: searchText">
+  <span *ngIf="display.length == 0" class="no-photos">
+    Liked images will show up here, go like some photos!
+  </span>
+
+  <ngx-masonry *ngIf="display.length > 0" class="liked-photos-container">
+    <div ngxMasonryItem class="liked-photos-col" *ngFor="let photo of display">
       <div class="liked-photo">
         <img class="liked-image" [src]="photo.img_src"/>
         <div class="button-container">
@@ -19,5 +23,11 @@
         </div>
       </div>
     </div>
+  </ngx-masonry>
+
+  <div class="button-container">
+    <button class="show-more" *ngIf="limit < likedPhotos.length" (click)="increaseLimit()">
+      Show More Images<mat-icon class="arrow">keyboard_arrow_down</mat-icon>
+    </button>
   </div>
 </div>
