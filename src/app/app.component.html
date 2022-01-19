@@ -1,46 +1,41 @@
 <div class="navbar">
   <div class="menu">
-    <button class="menu-trigger-button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu for page">
+    <button class="menu-trigger-button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="open menu">
       <mat-icon class="menu-icon">menu</mat-icon>
     </button>
     <mat-menu class="menu-options" #menu=matMenu>
       <nav mat-menu-item class="heading">
-        <a class="link" [routerLink]="['/']" [queryParams]="{ searchText: '' }">
+        <a aria-label="Home" class="link" [routerLink]="['/']" [queryParams]="{ searchText: '' }">
           <span>Home</span>
         </a>
       </nav>
       <nav mat-menu-item class="liked-link">
-        <a class="link" [routerLink]="['/liked-photos']" [queryParams]="{ input: '' }">
+        <a aria-label="Liked images" class="link" [routerLink]="['/liked-photos']" [queryParams]="{ input: '' }">
           <span>Liked</span>
         </a>
       </nav>
     </mat-menu>
   </div>
     <nav class="heading">
-      <a [routerLink]="['/']" [queryParams]="{ searchText: '' }">
+      <a aria-label="Home" [routerLink]="['/']" [queryParams]="{ searchText: '' }">
         <img class="logo" src="../assets/logo.svg" />
       </a>
     </nav>
     <div class="search">
-      <input 
-        [(ngModel)]="searchText" 
-        (keyup)="onKeyPress($event)" 
-        (blur)="toggleListDisplay(0)"
-        (focus)="toggleListDisplay(1)" 
-        placeholder="Search camera" 
-        class="search-input">
+      <input aria-label="Search camera" [(ngModel)]="searchText" (keyup)="onKeyPress($event)" (blur)="toggleListDisplay(0)" 
+        (focus)="toggleListDisplay(1)" placeholder="Search camera" class="search-input">
       <mat-icon class="search-icon">search</mat-icon>
 
       <div class="search-options" *ngIf="!listHidden">
         <list-item class="option" *ngFor="let camera of cameras; let i = index"
-          [ngClass]="{ 'selected': i===selectedIndex }" (click)="selectItem(i)">
+          [ngClass]="{ 'selected': i===selectedIndex }" [attr.aria-label]="camera" (click)="selectItem(i)">
           {{ camera }}
         </list-item>
       </div>
     </div>
 
     <nav class="liked-link">
-      <a class="link" [routerLink]="['/liked-photos']" [queryParams]="{ input: '' }">
+      <a aria-label="liked images" class="link" [routerLink]="['/liked-photos']" [queryParams]="{ input: '' }">
         <mat-icon class="star">account_circle</mat-icon>
       </a>
     </nav>

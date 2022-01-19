@@ -10,9 +10,11 @@
   <ngx-masonry class="rover-photos-container">
     <div ngxMasonryItem class="rover-photos-col" *ngFor="let photo of display | filter: searchText">
       <div class="rover-photo">
-        <img class="rover-image" [src]="photo.img_src" (click)="view(photo.img_src)"/>
+        <img class="rover-image" alt="{{ photo.rover.name }} caught by {{ photo.camera.full_name }}" 
+          [src]="photo.img_src" (click)="view(photo.img_src)" aria-label="zoom in"/>
         <div class="button-container">
-          <button mat-icon-button (click)="like(photo.liked, photo.id)">
+          <button mat-icon-button [attr.aria-label]="photo.liked ? 'unlike image' : 'like image'" 
+            (click)="like(photo.liked, photo.id)">
             <mat-icon class="star" *ngIf="!photo.liked">star_border</mat-icon>
             <mat-icon class="star" *ngIf="photo.liked">star</mat-icon>
           </button>
@@ -27,7 +29,8 @@
   </ngx-masonry>
 
   <div class="show-more-container">
-    <button class="show-more" *ngIf="limit < photos.length && !searchText" (click)="increaseLimit()">
+    <button class="show-more" aria-label="show more images" *ngIf="limit < photos.length && !searchText" 
+      (click)="increaseLimit()">
       Show More Images<mat-icon class="arrow">keyboard_arrow_down</mat-icon>
     </button>
   </div>

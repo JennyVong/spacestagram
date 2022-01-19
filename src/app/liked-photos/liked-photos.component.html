@@ -9,9 +9,10 @@
   <ngx-masonry *ngIf="display.length > 0" class="liked-photos-container">
     <div ngxMasonryItem class="liked-photos-col" *ngFor="let photo of display">
       <div class="liked-photo">
-        <img class="liked-image" [src]="photo.img_src"/>
+        <img class="liked-image" [src]="photo.img_src" 
+          alt="{{ photo.rover.name }} caught by {{ photo.camera.full_name }}" aria-label="click to zoom in"/>
         <div class="button-container">
-          <button mat-icon-button (click)="like(photo.liked, photo.id)">
+          <button mat-icon-button [attr.aria-label]="photo.liked ? 'unlike image' : 'like image'" (click)="like(photo.liked, photo.id)">
             <mat-icon class="star" *ngIf="!photo.liked">star_border</mat-icon>
             <mat-icon class="star" *ngIf="photo.liked">star</mat-icon>
           </button>
@@ -26,7 +27,8 @@
   </ngx-masonry>
 
   <div class="button-container">
-    <button class="show-more" *ngIf="limit < likedPhotos.length" (click)="increaseLimit()">
+    <button aria-label="show more images" class="show-more" *ngIf="limit < likedPhotos.length" 
+      (click)="increaseLimit()">
       Show More Images<mat-icon class="arrow">keyboard_arrow_down</mat-icon>
     </button>
   </div>
