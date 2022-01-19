@@ -81,6 +81,10 @@
 
         .rover-image {
           border-radius: 20px;
+
+          &:hover {
+            cursor: zoom-in;
+          }
         }
 
         .rover-description {
@@ -106,23 +110,24 @@
     }
 
     @media screen and (max-width: 1920px) {
-      margin-left: 45px;
+    margin-left: 45px;
 
-      .rover-photos-col {
-        width: 18%;
-      }
+    .rover-photos-col {
+      width: 18%;
+    }
   }
 
     @media screen and (max-width: 1350px) {
-        margin-left: 50px;
+      margin-left: 50px;
 
-        .rover-photos-col {
-          width: 30%;
-        }
+      .rover-photos-col {
+        width: 30%;
+      }
     }
 
     @media screen and (max-width: 600px) {
-        margin: 0;
+      margin-left: 0;
+
       .rover-photos-col {
         width: 100%;
       }

@@ -1,95 +1,142 @@
 .navbar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  width: 100%;
+  min-height: 70px;
+  z-index: 1;
+
+  .menu {
+    display: none;
+  }
+
+  .logo {
+   padding-left: 30px;
+   padding-top: 10px;
+  }
+
+  .search {
     display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
     width: 100%;
-    min-height: 70px;
-    z-index: 1;
+    position: relative;
+    margin-right: 30px;
+    
+    &-input {
+      width: 300px;
+      min-height: 30px;
+      border-radius: 20px;
+      background-color: #000;
+      border: 2px solid gray;
+      padding-left: 45px;
+      font-size: 16px;
+      color: #fff;
+
+      &:focus {
+        outline: #96BF46;
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      bottom: 23px;
+      right: 310px;
+      color: gray;
+    }
+
+    &-options {
+      position: absolute;
+      top: 55px;
+      text-align: center;
+      background-color: #000;
+      max-width: 340px;
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 1;
+      border-radius: 10px;
+    }
+
+    .selected {
+      background-color: #96BF46;
+    }
+
+    list-item {
+      display: block;
+      padding: 10px;
+
+      &:hover {
+        background-color: #1A3A53;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .liked-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30px;
+
+    .link {
+      text-decoration: none;
+
+      .star {
+          color: #96BF46;
+          font-size: 36px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    display: flex;
+    justify-content: space-between;
+
+    .menu {
+      display: flex;
+      align-items: center;
+      padding-left: 20px;
+  
+      .menu-trigger-button {
+        background-color: transparent;
+        border: none;
+      }
+    }
 
     .logo {
-        padding-left: 30px;
-        padding-top: 10px;
+      display: none;
     }
 
     .search {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-end;
-        width: 100%;
-        position: relative;
-        margin-right: 30px;
-        
-        &-input {
-            width: 300px;
-            min-height: 30px;
-            border-radius: 20px;
-            background-color: #000;
-            border: 2px solid gray;
-            padding-left: 45px;
-            font-size: 16px;
-            color: #fff;
+      margin-right: 20px;
+      
+      &-input {
+        width: 200px;
+      }
 
-            &:focus {
-                outline: #96BF46;
-            }
-        }
+      &-icon {
+        right: 210px;
+      }
 
-        &-icon {
-            position: absolute;
-            bottom: 23px;
-            right: 310px;
-            color: gray;
-        }
-
-        &-options {
-            position: absolute;
-            top: 55px;
-            text-align: center;
-            background-color: #000;
-            max-width: 340px;
-            max-height: 200px;
-            overflow-y: auto;
-            z-index: 1;
-            border-radius: 10px;
-        }
-
-        .selected {
-            background-color: #96BF46;
-        }
-
-        list-item {
-            display: block;
-            padding: 10px;
-
-            &:hover {
-                background-color: #1A3A53;
-                cursor: pointer;
-            }
-        }
+      &-options {
+        max-width: 240px;
+      }
     }
 
     .liked-link {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        padding-right: 30px;
-
-        .link {
-            text-decoration: none;
-
-            .star {
-                color: #96BF46;
-                font-size: 36px;
-            }
-        }
+      display: none;
     }
-    @media screen and (max-width: 600px) {
-        .rover-photos-col {
-          flex: 100%;
-          max-width: 100%;
-        }
-    } 
+  } 
+}
+
+::ng-deep .mat-menu-item {
+  background-color: #000;
+  
+  a {
+    text-decoration: none;
+    font-weight: 700;
+  }
 }

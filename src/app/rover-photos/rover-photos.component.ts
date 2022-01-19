@@ -38,6 +38,10 @@ export class RoverPhotosComponent implements OnInit {
     }
   }
 
+  view (photo: string): void {
+    window.open(photo, "_blank");
+  }
+
   like (photo: boolean, id: number): void {
     // check if photo has been initialized before - if not, create value
     if (photo) {

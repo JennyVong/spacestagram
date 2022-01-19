@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { LikedPhotosComponent } from './liked-photos/liked-photos.component';
 import { NasaPhotosService } from './nasa-photos.service';
 import { NgxMasonryModule } from 'ngx-masonry';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NgxMasonryModule } from 'ngx-masonry';
     MatFormFieldModule,
     FormsModule,
     NgxMasonryModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

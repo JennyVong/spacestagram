@@ -82,26 +82,27 @@
       margin-left: 45px;
     }
 
-    .rover-photos-col {
+    &-col {
       width: 18%;
     }
-}
+  }
 
   @media screen and (max-width: 1350px) {
     &-container {
       margin-left: 50px;
     }
 
-      .rover-photos-col {
-        width: 30%;
-      }
+    &-col {
+      width: 30%;
+    }
   }
 
   @media screen and (max-width: 600px) {
     &-container {
       margin: 0;
     }
-    .rover-photos-col {
+
+    &-col {
       width: 100%;
     }
   }

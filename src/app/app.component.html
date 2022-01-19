@@ -1,4 +1,21 @@
 <div class="navbar">
+  <div class="menu">
+    <button class="menu-trigger-button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu for page">
+      <mat-icon class="menu-icon">menu</mat-icon>
+    </button>
+    <mat-menu class="menu-options" #menu=matMenu>
+      <nav mat-menu-item class="heading">
+        <a class="link" [routerLink]="['/']" [queryParams]="{ searchText: '' }">
+          <span>Home</span>
+        </a>
+      </nav>
+      <nav mat-menu-item class="liked-link">
+        <a class="link" [routerLink]="['/liked-photos']" [queryParams]="{ input: '' }">
+          <span>Liked</span>
+        </a>
+      </nav>
+    </mat-menu>
+  </div>
     <nav class="heading">
       <a [routerLink]="['/']" [queryParams]="{ searchText: '' }">
         <img class="logo" src="../assets/logo.svg" />
@@ -21,10 +38,12 @@
         </list-item>
       </div>
     </div>
+
     <nav class="liked-link">
       <a class="link" [routerLink]="['/liked-photos']" [queryParams]="{ input: '' }">
         <mat-icon class="star">account_circle</mat-icon>
       </a>
     </nav>
   </div>
+
   <router-outlet></router-outlet>

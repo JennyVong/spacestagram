@@ -10,7 +10,7 @@
   <ngx-masonry class="rover-photos-container">
     <div ngxMasonryItem class="rover-photos-col" *ngFor="let photo of display | filter: searchText">
       <div class="rover-photo">
-        <img class="rover-image" [src]="photo.img_src"/>
+        <img class="rover-image" [src]="photo.img_src" (click)="view(photo.img_src)"/>
         <div class="button-container">
           <button mat-icon-button (click)="like(photo.liked, photo.id)">
             <mat-icon class="star" *ngIf="!photo.liked">star_border</mat-icon>
