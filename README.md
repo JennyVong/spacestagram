@@ -1,27 +1,60 @@
-# ShopifyChallenge
+# Spacestagram: Shopify Frontend Summer Internship Challenge 2022  :O
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.6.
+Demo [Spacestagram here](https://jennyvong.github.io/spacestagram/) :D
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To run Spacestagram on your local machine:
+- clone repo onto local machine
+- run `npm install` to install dependencies
+- run `npm run start`
+- navigate to `http://localhost:4200/`
 
-## Code scaffolding
+## Features  ^(^-^)^
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### View images from NASA's Rover Photos API
+- view images in a Masonry theme using the Angular module, ngx-masonry
+    - https://github.com/wynfred/ngx-masonry
+- see description of its Rover name, Camera name and date
+- click on image to view enlarged and zoom in if needed
+- loads 20 images at a time
 
-## Build
+### Like images (star)
+- liked images are saved into a `localstorage` to retain data on refresh
+- can view liked images in the liked images page by clicking on the profile icon on the right hand side of the navbar
+- can dislike images on any page
+    - disliking an image on the liked images page will automatically remove the image there
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Search images by camera
+- search bar in navbar filters displayed images on main page based on input
+- option to choose a specific camera through dropdown
 
-## Running unit tests
+### Loading State
+- instead of seeing a blank black page, a loading progress bar is displayed while images are being fetched from the api
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Responsiveness
+- can be viewed on mobile, desktop and display
 
-## Running end-to-end tests
+## Future Additions  O.o
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Search liked images
+- allow users to search and filter different cameras on the liked images page
 
-## Further help
+### Additional image APIs
+- load a variety of photos and expand the filtering search bar to a system
+- could incorporate a save image button and section
+    - filtered by API
+    - profile icon would represent both saved and liked images
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Full Stack!
+- add a backend and database so each user can have their own liked and saved images
+- express and SQL?
+
+## Design (>^-^)>
+
+- ideas were planned out in Figma: https://www.figma.com/file/WPlX3CQbbcOgvg3Dzz2xzw/Spacestagram?node-id=0%3A1
+
+## Development ._.
+
+- Angular CLI (https://github.com/angular/angular-cli) version 11.0.6.
+- Angular Material for the icons and menu in mobile view https://material.angular.io/
