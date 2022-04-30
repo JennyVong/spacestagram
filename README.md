@@ -1,4 +1,4 @@
-# Spacestagram: Shopify Frontend Summer Internship Challenge 2022  :O
+# Spacestagram :O
 
 - Demo [Spacestagram here](https://jennyvong.github.io/spacestagram/) :D
 - [Source Code here](https://github.com/JennyVong/spacestagram/tree/master) :)
